@@ -15,12 +15,12 @@ def rf_rfe(df):
     rf = RandomForestClassifier()
     rf.fit(X,y)
     nos= int(len(X.columns)/2)
-#     rfe = RFE(rf, n_features_to_select=nos)
-#     rfe = rfe.fit(X, y)
-#     top_features = []
-#     for t in list(zip(rfe.ranking_,X.columns)):
-#         if t[0]==1:
-#             top_features.append(t[1])
+    rfe = RFE(rf, n_features_to_select=nos)
+    rfe = rfe.fit(X, y)
+    top_features = []
+    for t in list(zip(rfe.ranking_,X.columns)):
+        if t[0]==1:
+            top_features.append(t[1])
     top_features = ['LotFrontage', 'LotArea', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea', 'BsmtFinSF1', 'BsmtUnfSF',
                     'TotalBsmtSF', '1stFlrSF', '2ndFlrSF', 'GrLivArea', 'TotRmsAbvGrd', 'GarageYrBlt', 'GarageArea',
                     'WoodDeckSF', 'OpenPorchSF', 'YrSold']    
